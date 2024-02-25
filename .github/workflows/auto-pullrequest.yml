@@ -1,24 +1,24 @@
 name: Auto Pull Request with GitHub Actions
 
 on:
-  push:
-    branches-ignore:
-      - "main"
+    push:
+        branches-ignore:
+            - "main"
 
 jobs:
-  create_pr_repo_sync:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Create pull request
-        id: open-pr
-        uses: repo-sync/pull-request@v2
-        with:
-          destination_branch: "main"
-          pr_title: "feat: PLACEHOLDER TITLE"
-          pr_template: ".github/PR-template.md"
-          pr_reviewer: "qornainaji"
-          pr_draft: true
+    create_pr_repo_sync:
+        runs-on: ubuntu-latest
+        steps: 
+            - uses: actions/checkout@v3
+            - name: Create pull request
+              id: open-pr
+              uses: repo-sync/pull-request@v2
+              with:
+                destination_branch: "main"
+                pr_title: "feat: PLACEHOLDER TITLE"
+                pr_template: ".github/PR-template.md"
+                pr_reviewer: "qornainaji"
+                pr_draft: true
 
 
 # on:
