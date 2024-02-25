@@ -1,0 +1,34 @@
+name: Auto Pull Request with GitHub Actions
+
+on:
+    pull_request:
+        branches: [ main ]
+
+jobs:
+    build:
+        name: Build
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Build the Code
+              run: |
+                echo "Building the code"
+
+# on:
+#     push:
+#         branches:
+#             - main
+
+# jobs:
+#     updateAuthor:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Checking out code
+#               uses: actions/checkout@v2
+            
+#             - name: Extract git commit data
+#               uses: rlespinasse/git-commit-data-action@v1.x
+
+#             - name: Raise Pull Request
+
