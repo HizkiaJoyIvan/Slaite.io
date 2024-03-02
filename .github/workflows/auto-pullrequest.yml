@@ -1,23 +1,25 @@
 name: Auto Pull Request with GitHub Actions
 
 on:
-  push:
-    branches-ignore:
+  pull_request:
+    branches:
       - "main"
 
 jobs:
   create_pr_repo_sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Create pull request
-        id: open-pr
-        uses: repo-sync/pull-request@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
         with:
-          destination_branch: "main"
-          pr_title: "feat: PLACEHOLDER TITLE"
-          pr_template: ".github/PR-template.md"
-          pr_draft: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Automated Pull Request
+          body: This pull request was automatically created by a GitHub Action.
+          branch: feature/automated-pull-request
+          base: main
 
 
 # on:
