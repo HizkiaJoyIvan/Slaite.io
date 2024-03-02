@@ -17,7 +17,6 @@ jobs:
           destination_branch: "main"
           pr_title: "feat: PLACEHOLDER TITLE"
           pr_template: ".github/PR-template.md"
-          pr_reviewer: "qornainaji"
           pr_draft: true
 
 
