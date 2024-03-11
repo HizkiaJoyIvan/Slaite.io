@@ -1,7 +1,6 @@
 from sqlalchemy import Boolean, Enum, Column, Integer, String, ForeignKey, Date, Time
 from sqlalchemy.orm import relationship, declarative_base, sessionmaker
-
-Base = declarative_base()
+from config.database import Base
 
 class Activity(Base):
     __tablename__ = 'activity'
