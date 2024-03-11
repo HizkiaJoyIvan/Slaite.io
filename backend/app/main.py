@@ -13,13 +13,13 @@ app.add_middleware(
     allow_credentials=True
 )
 
-app.include_router(authRoutes.router, prefix="/api")
-app.include_router(userRoutes.router, prefix="/api")
-app.include_router(eventRoutes.router, prefix="/api")
-app.include_router(activityRoutes.router, prefix="/api")
-app.include_router(taskRoutes.router, prefix="/api")
-app.include_router(notificationRoutes.router, prefix="/api")
-app.include_router(scheduleRoutes.router, prefix="/api")
+app.include_router(authRoutes.router, prefix="/api/auth")
+app.include_router(userRoutes.router, prefix="/api/user")
+app.include_router(eventRoutes.router, prefix="/api/event")
+app.include_router(activityRoutes.router, prefix="/api/activity")
+app.include_router(taskRoutes.router, prefix="/api/task")
+app.include_router(notificationRoutes.router, prefix="/api/notification")
+app.include_router(scheduleRoutes.router, prefix="/api/schedule")
 
 if __name__ == "__main__": 
     uvicorn.run("main:app", reload=True)
