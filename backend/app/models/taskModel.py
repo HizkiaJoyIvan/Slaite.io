@@ -1,14 +1,15 @@
-from sqlalchemy import Boolean, Enum, Column, Integer, String, ForeignKey, Date, Time
+from sqlalchemy import Column, Integer, String, ForeignKey, Date, Time
 from sqlalchemy.orm import relationship, declarative_base, sessionmaker
 
-Base = declarative_base()
+from config.database import Base
 
 class Task(Base):
-    __tablename__ = 'task'
+    __tablename__ = 'tasks'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
     detail = Column(String)
     due_time = Column(Time)
-    repeat_interval = Column(Enum("Daily", "Weekly", "Monthly"))
-    schedule_id = Column(Integer, ForeignKey('schedule.id'))
+    activity_id = Column(Integer, ForeignKey('activities.id'))
+    activity = relationship("Relationship", back_populates="activity")
+    
