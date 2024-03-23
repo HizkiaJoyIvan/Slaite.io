@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from routes import authRoutes, userRoutes, eventRoutes, notificationRoutes, taskRoutes, activityRoutes, scheduleRoutes
+from config.database import Base
+from config.database import engine
 
 app = FastAPI()
 
@@ -12,6 +14,8 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True
 )
+
+Base.metadata.create_all(bind=engine)
 
 app.include_router(authRoutes.router, prefix="/api/auth")
 app.include_router(userRoutes.router, prefix="/api/user")

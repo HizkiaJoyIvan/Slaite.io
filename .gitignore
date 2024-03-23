@@ -1,5 +1,6 @@
 **/.DS_Store
 backend/__pycache__
 backend/myenv
+backend/**/__pycache__
 frontend/package.json
 .env

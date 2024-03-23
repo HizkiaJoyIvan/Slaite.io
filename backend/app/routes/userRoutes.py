@@ -6,9 +6,9 @@ from sqlalchemy.orm import Session
 router = APIRouter(tags=["Users"])
 
 @router.get("/")
-def getAllUser(db: Session):
+def getAllUser():
     return UserController.getAllUser()
 
 @router.get("/{id}")
-def getUserDetail(id: int, db: Session):
+def getUserDetail():
     return UserController.getUserDetail(id)
